@@ -15,3 +15,4 @@ outputs/representations/
 data/raw/.idea/
 .idea/
 paper/
+config_rwkv_test.yaml
