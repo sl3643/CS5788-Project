@@ -97,7 +97,7 @@ def make_cka_heatmaps(config: Dict) -> list[Path]:
 
 def make_baseline_comparison(config: Dict) -> Path:
     """
-    Make a bar plot comparing real CKA against shuffled and random baselines
+    Make a bar plot comparing real CKA against the shuffled-text baseline
     """
     output_dir = resolve_path(config.get("project", {}).get("output_dir", "outputs"))
     metrics_dir = output_dir / "metrics"
@@ -110,7 +110,6 @@ def make_baseline_comparison(config: Dict) -> Path:
         pair = f"{row['model_a']} vs {row['model_b']}"
         rows.append({"pair": pair, "setting": "real", "mean_cka": row["mean_cka"]})
         rows.append({"pair": pair, "setting": "shuffled", "mean_cka": row["shuffled_mean_cka"]})
-        rows.append({"pair": pair, "setting": "random", "mean_cka": row["random_mean_cka"]})
 
     plot_df = pd.DataFrame(rows)
     output_path = figures_dir / "baseline_comparison.png"
@@ -119,7 +118,7 @@ def make_baseline_comparison(config: Dict) -> Path:
     sns.barplot(data=plot_df, x="pair", y="mean_cka", hue="setting")
     plt.xticks(rotation=20, ha="right")
     plt.ylim(0, 1)
-    plt.title("Mean CKA vs baselines")
+    plt.title("Mean CKA vs shuffled-text baseline")
     plt.xlabel("Model pair")
     plt.ylabel("Mean CKA")
     plt.tight_layout()
