@@ -12,4 +12,5 @@ outputs/representations/
 *.bin
 *.safetensors
 
-data/raw/
+data/raw/.idea/
+.idea/
