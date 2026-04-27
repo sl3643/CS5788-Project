@@ -7,11 +7,11 @@ data:
   dataset_name: wikitext
   dataset_config: wikitext-2-raw-v1
   split: test
-  num_texts: 300
+  num_texts: 30
   min_words: 8
   max_words: 80
   text_field: text
-  processed_path: data/processed/texts_300.jsonl
+  processed_path: data/processed/texts_30.jsonl
 
 models:
   - name: gpt2
@@ -23,13 +23,14 @@ models:
   - name: pythia-70m
     hf_id: EleutherAI/pythia-70m
     family: decoder_transformer
+#    enabled: false
     enabled: true
     trust_remote_code: false
 
   - name: mamba-130m
     hf_id: state-spaces/mamba-130m-hf
     family: state_space
-    enabled: true
+    enabled: false
     trust_remote_code: true
 
   - name: rwkv-169m
