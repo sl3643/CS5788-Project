@@ -37,7 +37,8 @@ models:
   - name: rwkv-169m
     hf_id: RWKV/rwkv-4-169m-pile
     family: recurrent_like
-    enabled: false
+#    enabled: false
+    enabled: true
     trust_remote_code: true
 
 extraction:
