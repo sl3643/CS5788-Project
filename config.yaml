@@ -1,0 +1,71 @@
+project:
+  seed: 42
+  output_dir: outputs
+  cache_dir: .cache
+
+data:
+  dataset_name: wikitext
+  dataset_config: wikitext-2-raw-v1
+  split: test
+  num_texts: 300
+  min_words: 8
+  max_words: 80
+  text_field: text
+  processed_path: data/processed/texts_300.jsonl
+
+models:
+  - name: gpt2
+    hf_id: gpt2
+    family: decoder_transformer
+    enabled: true
+    trust_remote_code: false
+
+  - name: pythia-70m
+    hf_id: EleutherAI/pythia-70m
+    family: decoder_transformer
+    enabled: true
+    trust_remote_code: false
+
+  - name: mamba-130m
+    hf_id: state-spaces/mamba-130m-hf
+    family: state_space
+    enabled: true
+    trust_remote_code: true
+
+  - name: rwkv-169m
+    hf_id: RWKV/rwkv-4-169m-pile
+    family: recurrent_like
+    enabled: false
+    trust_remote_code: true
+
+extraction:
+  device: auto
+  dtype: auto
+  batch_size: 4
+  max_length: 128
+  pooling: mean
+  save_token_level: false
+  save_format: npz
+
+metrics:
+  layer_strategy: all
+  cka:
+    center: true
+  svcca:
+    enabled: false
+    variance_threshold: 0.99
+    max_components: 100
+  nn_overlap:
+    k_values: [5, 10]
+    metric: cosine
+
+baselines:
+  shuffled: true
+  random_gaussian: true
+  num_random_trials: 5
+
+visualization:
+  pca: true
+  umap: true
+  selected_layers: ["early", "middle", "late"]
+  dpi: 300

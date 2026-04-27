@@ -1,0 +1,14 @@
+torch
+transformers
+datasets
+accelerate
+numpy
+scipy
+scikit-learn
+pandas
+matplotlib
+seaborn
+pyyaml
+tqdm
+umap-learn
+safetensors
