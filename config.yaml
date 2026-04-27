@@ -7,11 +7,11 @@ data:
   dataset_name: wikitext
   dataset_config: wikitext-2-raw-v1
   split: test
-  num_texts: 30
+  num_texts: 300
   min_words: 8
   max_words: 80
   text_field: text
-  processed_path: data/processed/texts_30.jsonl
+  processed_path: data/processed/texts_300.jsonl
 
 models:
   - name: gpt2
