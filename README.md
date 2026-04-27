@@ -1,6 +1,6 @@
 # Platonic Language Representations
 
-This is the code repository for our CS5788 final project, A Language Study of the Platonic Representation Hypothesis
+This is the code repository for our CS5788 final project, **A Language Study of the Platonic Representation Hypothesis**
 
 The project compares sentence-level hidden representations from several pretrained generative language models on the same set of WikiText-2 passages. We use layer-wise CKA, nearest-neighbor overlap, shuffled-text baselines, and PCA/UMAP visualizations to study whether different model architectures learn similar representation geometry
 
